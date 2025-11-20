@@ -1,0 +1,100 @@
+[
+  {
+    "category": "https://shop.aversi.ge/ka/medication/მედიკამენტები-სხვადასხვა/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/homeopathic-remedies/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-cardiovascular-diseases/",
+    "startPage": 1,
+    "endPage": 40,
+    "perpage": 24,
+    "pages": 40
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/various-medicinal-products/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/child-care/child-care-hygiene-products/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/oral-care/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/skin-care-products/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/drugs-stimulating-the-production-of-blood-cells/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/deodorant-antiperspirant/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/oral-care/toothpaste/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/oral-care/denture-adhesive/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/care-items-and-products/care-products-and-equipment/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/skin-care-products/skin-care-products-ka-17/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/care-products/skin-care-products/skin-care-products-ka-13/",
+    "startPage": 1,
+    "endPage": 12,
+    "perpage": 192,
+    "pages": 12
+  }
+]
