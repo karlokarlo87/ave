@@ -26,7 +26,26 @@ let scrapingStatus = {
     message: 'Ready to start',
     startTime: null,
     endTime: null,
-    stopRequested: false
+    duration: null,
+    stopRequested: false,
+    
+    // Shop.aversi.ge tracking
+    shopAversi: {
+        currentCategory: 0,
+        totalCategories: 0,
+        currentPage: 0,
+        totalPages: 0,
+        productsFound: 0
+    },
+    
+    // Aversi.ge (old site) tracking
+    oldAversi: {
+        currentCategory: 0,
+        totalCategories: 0,
+        currentPage: 0,
+        totalPages: 0,
+        productsFound: 0
+    }
 };
 
 // ============================================
@@ -104,7 +123,7 @@ async function getOldDataFromJson(newProducts) {
         const oldData = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
         const allProducts = [...oldData, ...newProducts];
         
-      //  console.log(`📊 Total products before deduplication: ${allProducts.length}`);
+        console.log(`📊 Total products before deduplication: ${allProducts.length}`);
         
         // Remove duplicates based on productCode
         const uniqueProductsMap = new Map();
@@ -117,7 +136,7 @@ async function getOldDataFromJson(newProducts) {
         });
         
         const uniqueProducts = Array.from(uniqueProductsMap.values());
-       // console.log(`📊 Unique products after deduplication: ${uniqueProducts.length}`);
+        console.log(`📊 Unique products after deduplication: ${uniqueProducts.length}`);
         
         return uniqueProducts;
     }
@@ -132,14 +151,14 @@ function loadCategories() {
         if (fs.existsSync(categoriesPath)) {
             const data = fs.readFileSync(categoriesPath, 'utf-8');
             const categories = JSON.parse(data);
-          //  console.log(`✅ Loaded ${Object.keys(categories).length} FarmID categories`);
+            console.log(`✅ Loaded ${Object.keys(categories).length} FarmID categories`);
             return categories;
         } else {
             console.warn('⚠️ aversi-farmid.json file not found, skipping FarmID scraping');
             return {};
         }
     } catch (error) {
-      //  console.error('❌ Error loading categories:', error.message);
+        console.error('❌ Error loading categories:', error.message);
         return {};
     }
 }
@@ -172,7 +191,7 @@ async function downloadPageHTML(browser, category, pageNum, perpage = 192) {
             Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
         });
         
-       // console.log(`📥 Downloading ${category} page ${pageNum}...`);
+        console.log(`📥 Downloading ${category} page ${pageNum}...`);
         scrapingStatus.message = `Downloading ${category} page ${pageNum}...`;
         
         await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
@@ -188,13 +207,13 @@ async function downloadPageHTML(browser, category, pageNum, perpage = 192) {
         
         const filename = path.join(tempDir, `page_${pageNum}.html`);
         fs.writeFileSync(filename, html);
-       // console.log(`✓ Saved: ${filename} (${Math.round(html.length / 1024)} KB)`);
+        console.log(`✓ Saved: ${filename} (${Math.round(html.length / 1024)} KB)`);
         
         await page.close();
         return filename;
         
     } catch (error) {
-      //  console.error(`✗ Error downloading page ${pageNum}:`, error.message);
+        console.error(`✗ Error downloading page ${pageNum}:`, error.message);
         if (page) await page.close();
         return null;
     }
@@ -202,14 +221,14 @@ async function downloadPageHTML(browser, category, pageNum, perpage = 192) {
 
 function parseHTMLFile(filename, category, pageNum) {
     try {
-       // console.log(`🔍 Parsing ${path.basename(filename)}...`);
+        console.log(`🔍 Parsing ${path.basename(filename)}...`);
         
         const html = fs.readFileSync(filename, 'utf-8');
         const $ = cheerio.load(html);
         const products = [];
         
         const colTiles = $('.col-tile');
-      //  console.log(`   Found ${colTiles.length} .col-tile elements on page`);
+        console.log(`   Found ${colTiles.length} .col-tile elements on page`);
         
         $('.col-tile').each((index, element) => {
             const $el = $(element);
@@ -240,13 +259,13 @@ function parseHTMLFile(filename, category, pageNum) {
             }
         });
         
-       // console.log(`   ✓ Extracted ${products.length} valid products`);
+        console.log(`   ✓ Extracted ${products.length} valid products`);
         scrapingStatus.productsFound += products.length;
         
         return products;
         
     } catch (error) {
-       // console.error(`✗ Error parsing ${filename}:`, error.message);
+        console.error(`✗ Error parsing ${filename}:`, error.message);
         return [];
     }
 }
@@ -274,7 +293,7 @@ async function getCategories(browser) {
             Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
         });
         
-     //   console.log('🔍 Fetching categories from main page...');
+        console.log('🔍 Fetching categories from main page...');
         
         await page.goto('https://shop.aversi.ge/ka/', { waitUntil: 'networkidle2', timeout: 60000 });
         await waitForCloudflare(page);
@@ -317,7 +336,7 @@ async function getCategories(browser) {
             }
         });
         
-       // console.log(`✓ Found ${categories.length} categories from dynamic scraping`);
+        console.log(`✓ Found ${categories.length} categories from dynamic scraping`);
  
         // Add additional hardcoded categories
         categories.push(
@@ -343,7 +362,7 @@ async function getCategories(browser) {
                 index === self.findIndex(obj => obj.category === item.category)
         );
         
-      //  console.log(`✓ ${uniqueCategories.length} unique categories after deduplication`);
+        console.log(`✓ ${uniqueCategories.length} unique categories after deduplication`);
         
         return uniqueCategories;
         
@@ -360,14 +379,14 @@ async function getCategories(browser) {
 
 async function parseCategoryPage(filename, farmID, categoryName) {
     try {
-       // console.log(`  🔍 Parsing category ${farmID}...`);
+        console.log(`  🔍 Parsing category ${farmID}...`);
         
         const html = fs.readFileSync(filename, 'utf-8');
         const $ = cheerio.load(html);
         const products = [];
         
         const productItems = $('.product-item, .product-card, .product, .item, tr[data-matid]');
-       // console.log(`     Found ${productItems.length} product elements`);
+        console.log(`     Found ${productItems.length} product elements`);
         
         if (productItems.length > 0) {
             $('.product').each((index, element) => {
@@ -405,7 +424,7 @@ async function parseCategoryPage(filename, farmID, categoryName) {
             });
         }
         
-       // console.log(`     ✓ Extracted ${products.length} valid products`);
+        console.log(`     ✓ Extracted ${products.length} valid products`);
         scrapingStatus.productsFound += products.length;
         
         return products;
@@ -433,11 +452,11 @@ async function scrapeCategoriesByFarmID(browser, categories) {
         categoryIndex++;
         
         if (scrapingStatus.stopRequested) {
-           // console.log('🛑 Stop requested - halting category scraping');
+            console.log('🛑 Stop requested - halting category scraping');
             break;
         }
         
-       // console.log(`\n[${categoryIndex}/${categoryEntries.length}] 🏛️ Category: ${farmID} - ${categoryName}`);
+        console.log(`\n[${categoryIndex}/${categoryEntries.length}] 🏛️ Category: ${farmID} - ${categoryName}`);
         scrapingStatus.currentCategory = `${farmID} - ${categoryName}`;
         
         let page;
@@ -459,13 +478,13 @@ async function scrapeCategoriesByFarmID(browser, categories) {
             });
             
             const firstPageUrl = `https://www.aversi.ge/ka/aversi/act/genDet/?FarmID=${farmID}`;
-           // console.log(`  📥 Downloading first page to check pagination...`);
+            console.log(`  📥 Downloading first page to check pagination...`);
             
             await page.goto(firstPageUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
             
             const title = await page.title();
             if (title.includes("Just a moment")) {
-               // console.log(`  ⚠️ Cloudflare challenge detected, waiting...`);
+                console.log(`  ⚠️ Cloudflare challenge detected, waiting...`);
                 await page.waitForNavigation({ waitUntil: "networkidle2", timeout: 120000 }).catch(() => {});
                 await delay(3000);
             }
@@ -483,13 +502,13 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                 return pageNumbers.length ? Math.max(...pageNumbers) : 1;
             });
             
-           // console.log(`  📄 Total pages found: ${totalPages}`);
+            console.log(`  📄 Total pages found: ${totalPages}`);
             await page.close();
             
             // Loop through all pages
             for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
                 if (scrapingStatus.stopRequested) {
-                    //console.log('🛑 Stop requested - halting page scraping');
+                    console.log('🛑 Stop requested - halting page scraping');
                     break;
                 }
                 
@@ -500,7 +519,7 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                     ? `https://www.aversi.ge/ka/aversi/act/genDet/?FarmID=${farmID}`
                     : `https://www.aversi.ge/ka/aversi/act/genDet/?FarmID=${farmID}&page=${currentPage}`;
                 
-               // console.log(`\n  [Page ${currentPage}/${totalPages}] 📥 Downloading from aversi.ge...`);
+                console.log(`\n  [Page ${currentPage}/${totalPages}] 📥 Downloading from aversi.ge...`);
                 
                 let pageHandle;
                 let filename;
@@ -523,7 +542,7 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                     
                     const pageTitle = await pageHandle.title();
                     if (pageTitle.includes("Just a moment")) {
-                       // console.log(`    ⚠️ Cloudflare challenge detected, waiting...`);
+                        console.log(`    ⚠️ Cloudflare challenge detected, waiting...`);
                         await pageHandle.waitForNavigation({ waitUntil: "networkidle2", timeout: 120000 }).catch(() => {});
                         await delay(3000);
                     }
@@ -552,11 +571,11 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                     
                     if (products && products.length > 0) {
                         allProducts.push(...products);
-                      //  console.log(`    ✅ Page ${currentPage}: ${products.length} products`);
+                        console.log(`    ✅ Page ${currentPage}: ${products.length} products`);
                     } else {
-                      //  console.log(`    ⚠️ Page ${currentPage}: No products found`);
+                        console.log(`    ⚠️ Page ${currentPage}: No products found`);
                         if (currentPage > 1) {
-                            //console.log(`    ℹ️ Stopping pagination for this category`);
+                            console.log(`    ℹ️ Stopping pagination for this category`);
                             break;
                         }
                     }
@@ -566,7 +585,7 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                     } catch (e) {}
                     
                 } catch (error) {
-                   // console.error(`    ✗ Error on page ${currentPage}:`, error.message);
+                    console.error(`    ✗ Error on page ${currentPage}:`, error.message);
                     if (pageHandle) await pageHandle.close();
                 }
                 
@@ -577,10 +596,10 @@ async function scrapeCategoriesByFarmID(browser, categories) {
             
             successCount++;
             const categoryProducts = allProducts.filter(p => p.farmID === farmID).length;
-            //console.log(`  ✅ Category Complete: ${categoryProducts} total products from ${totalPages} pages`);
+            console.log(`  ✅ Category Complete: ${categoryProducts} total products from ${totalPages} pages`);
             
         } catch (error) {
-           // console.error(`  ✗ Error:`, error.message);
+            console.error(`  ✗ Error:`, error.message);
             if (page) await page.close();
             failCount++;
         }
@@ -618,20 +637,20 @@ async function scrapeAllCategories(browser, categories) {
     let failedPages = [];
     let totalPagesScraped = 0;
     
-    //console.log('📊 Discovered categories:', categories.length);
+    console.log('📊 Discovered categories:', categories.length);
     
     // Scrape FarmID categories from old site (if available)
-   // console.log('🔍 Loading FarmID categories...');
+    console.log('🔍 Loading FarmID categories...');
     const farmIDCategories = loadCategories();
     
     if (Object.keys(farmIDCategories).length > 0) {
-       // console.log('🔍 Starting FarmID scraping...');
+        console.log('🔍 Starting FarmID scraping...');
         const farmIDProducts = await scrapeCategoriesByFarmID(browser, farmIDCategories);
         allProducts.push(...farmIDProducts);
-       // console.log(`✓ Added ${farmIDProducts.length} FarmID products to results`);
+        console.log(`✓ Added ${farmIDProducts.length} FarmID products to results`);
     }
     
-    //console.log('\n🚀 Starting category scraping (shop.aversi.ge)...');
+    console.log('\n🚀 Starting category scraping (shop.aversi.ge)...');
     
     // Process each category from shop.aversi.ge
     for (let catIndex = 0; catIndex < categories.length; catIndex++) {
@@ -653,7 +672,7 @@ async function scrapeAllCategories(browser, categories) {
             
             scrapingStatus.currentCategoryProgress = `Page ${currentPageInCategory}/${totalPagesInCategory}`;
             
-            //console.log(`\n[Category ${catIndex + 1}/${categories.length}] [Page ${currentPageInCategory}/${totalPagesInCategory}] Processing ${category} page ${page}...`);
+            console.log(`\n[Category ${catIndex + 1}/${categories.length}] [Page ${currentPageInCategory}/${totalPagesInCategory}] Processing ${category} page ${page}...`);
             
             const filename = await downloadPageHTML(browser, category, page, perpage);
             
@@ -661,21 +680,21 @@ async function scrapeAllCategories(browser, categories) {
                 scrapingStatus.message = `Category ${catIndex + 1}/${categories.length} - Page ${currentPageInCategory}/${totalPagesInCategory}`;
                 const products = parseHTMLFile(filename, category, page);
                 
-               // console.log(`📦 Parsed ${products.length} products from this page`);
+                console.log(`📦 Parsed ${products.length} products from this page`);
                 
                 if (products && products.length > 0) {
                     allProducts.push(...products);
                     successfulPages++;
                     totalPagesScraped++;
-                   // console.log(`✓ Total so far: ${allProducts.length} products from ${successfulPages} pages`);
+                    console.log(`✓ Total so far: ${allProducts.length} products from ${successfulPages} pages`);
                     
                     if (products.length < perpage) {
-                       // console.log(`⚠️ Found ${products.length} < ${perpage} products, stopping this category (reached last page)`);
+                        console.log(`⚠️ Found ${products.length} < ${perpage} products, stopping this category (reached last page)`);
                         fs.unlinkSync(filename);
                         break;
                     }
                 } else {
-                   // console.log(`✗ No products found on ${category} page ${page} - stopping category`);
+                    console.log(`✗ No products found on ${category} page ${page} - stopping category`);
                     failedPages.push(`${category}-${page}`);
                     fs.unlinkSync(filename);
                     break;
@@ -693,14 +712,14 @@ async function scrapeAllCategories(browser, categories) {
             }
             
             if (page < endPage) {
-               // console.log(`⏳ Waiting 3 seconds...`);
+                console.log(`⏳ Waiting 3 seconds...`);
                 await delay(3000);
             }
         }
         
         scrapingStatus.completedCategories = catIndex + 1;
         scrapingStatus.progress = Math.round(((catIndex + 1) / categories.length) * 100);
-      //  console.log(`\n✓ Category ${catIndex + 1}/${categories.length} completed! Progress: ${scrapingStatus.progress}%`);
+        console.log(`\n✓ Category ${catIndex + 1}/${categories.length} completed! Progress: ${scrapingStatus.progress}%`);
     }
     
     await browser.close();

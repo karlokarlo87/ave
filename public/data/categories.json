@@ -1,5 +1,663 @@
 [
   {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/antibiotics/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/synthetic-antimicrobial-agents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/phages/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/antifungal-agents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/for-tuberculosis/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/worms-repellents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/scab-repellents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/lice-repellents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/for-infections-caused-by-protozoa/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/for-viral-diseases/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/antiseptic-and-disinfectant-agents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/antimicrobial-antiviral-and-antiparasitic-agents/combined-action-antimicrobials/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/nonsteroidal-anti-inflammatory-drugs/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/various-anti-inflammatory-agents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/topical-anti-inflammatory-and-analgesic-agents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/for-allergy/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/glucocorticosteroids/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/immunomodulators/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/immunosuppressants/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/anti-inflammatory/immunoglobulin-medications/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/neuroleptics/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/parkinsons-disease-prevention-drugs/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/calming/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/hypnotics/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/for-epilepsy/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/nootropic/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/for-migraine/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/antidepressants/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/myorelaxant-agents/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/alcohol-addiction-and-nicotine-addiction-treatment-medications/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/vestibular-system-disorders-treatment-medications/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/general-anesthetics/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/local-anesthetics/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-nervous-system/other-drugs-used-in-neurology-and-psychiatry/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-hormonal-changes/for-diabetes/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-hormonal-changes/for-thyroid-diseases/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-hormonal-changes/birth-control/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-hormonal-changes/genital-hormone-agents-and-their-antagonists/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-hormonal-changes/pituitary-hormones-and-analogs-corticotropins-gonadotropins/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-hormonal-changes/endocrinological-drugs-of-various-groups/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/vitamins/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/for-anemia/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/agents-for-uric-acid-and-nitrogen-metabolism/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/systemic-acting-drugs-for-metabolism-in-the-tissues/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/systemic-acting-drugs-for-metabolism-in-the-bone-and-cartilage-tissues/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/anabolic-remedies/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/anti-obesity-drugs/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/medications-used-for-functional-asthenia/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/medications-used-during-menopause/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/lipid-metabolism-regulators/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/treatment-of-alopecia/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/other-substances-acting-on-the-metabolism/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-metabolism/sakvebi-danamatebi/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/for-prostate-hyperplasia/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/drugs-for-erection-disorders/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/various-urological-medications/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/for-bladder-inflammation/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/for-urinary-tract-infections/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/agents-acting-on-myometrial-tone-and-compression-ability/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/gynecological-medications-of-different-groups/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-urogenital-system-diseases/topical-medicines-for-the-treatment-of-infectious-inflammatory-diseases-of-the-genitourinary-system/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-respiratory-diseases/for-flu-and-cold-symptoms/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-respiratory-diseases/for-sputum-mucolytic-and-expectorants/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-respiratory-diseases/bronchial-muscle-relaxants/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-respiratory-diseases/cough-suppressors/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-respiratory-diseases/for-ear-nose-and-throat/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/for-stomach-ulcer/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/anti-heartburn/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/improving-digestion-system/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/for-low-stomach-acidity/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/anti-emetic/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/abdominal-distension-control/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/medications-for-the-motility-of-the-digestive-system/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/for-constipation/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/anti-diarrhea/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/for-liver-and-gallbladder-diseases/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/various-medications-for-digestive-system/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/myotropic-spasmolytics/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/for-digestive-system-diseases/medications-for-improving-apetite/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/treatment-of-skin-diseases/for-the-treatment-of-burn/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/treatment-of-skin-diseases/blackhead-control/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/treatment-of-skin-diseases/preparations-for-hyperkeratosis/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/treatment-of-skin-diseases/topical-remedies-for-psoriasis/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/treatment-of-skin-diseases/dermatotropic-fot-demodecosis-remedies/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/treatment-of-skin-diseases/dermatological-and-other-medications-for-external-use/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/remedies-for-ophthalmology/antimicrobial-drugs/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/remedies-for-ophthalmology/regeneration-stimulating-drugs/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/remedies-for-ophthalmology/anti-glaucoma-drugs/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/remedies-for-ophthalmology/midriatics/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/remedies-for-ophthalmology/recommended-drugs-for-cataracts/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/remedies-for-ophthalmology/ophthalmic-remedies-of-different-groups/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/care-items-and-products/care-products-and-equipment/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/care-items-and-products/dental-remedies/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
+    "category": "https://shop.aversi.ge/ka/medication/care-items-and-products/food-products/",
+    "startPage": 1,
+    "endPage": 50,
+    "perpage": 192,
+    "pages": 50
+  },
+  {
     "category": "https://shop.aversi.ge/ka/medication/მედიკამენტები-სხვადასხვა/",
     "startPage": 1,
     "endPage": 12,
@@ -71,13 +729,6 @@
   },
   {
     "category": "https://shop.aversi.ge/ka/care-products/oral-care/denture-adhesive/",
-    "startPage": 1,
-    "endPage": 12,
-    "perpage": 192,
-    "pages": 12
-  },
-  {
-    "category": "https://shop.aversi.ge/ka/medication/care-items-and-products/care-products-and-equipment/",
     "startPage": 1,
     "endPage": 12,
     "perpage": 192,
