@@ -5,7 +5,14 @@ const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 const cheerio = require('cheerio');
 const fs = require('fs');
 const XLSX = require('xlsx');
+ const { exec } = require('child_process');
 
+ 
+ 
+const AnonPlugin = require('puppeteer-extra-plugin-anonymize-ua');
+
+puppeteer.use(StealthPlugin());
+puppeteer.use(AnonPlugin());
 puppeteer.use(StealthPlugin());
 
 const app = express();
@@ -104,7 +111,7 @@ async function waitForCloudflare(page) {
                 console.log(`  ⚠️ Cloudflare challenge timeout - continuing anyway`);
             });
             
-            await delay(2000);  // Reduced from 3000ms
+            await delay(4000);  // Reduced from 3000ms
             console.log(`  ✅ Cloudflare challenge passed`);
             return true;
         }
@@ -190,7 +197,7 @@ async function downloadPageHTML(browser, category, pageNum, perpage = 192) {
         
         await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
         await waitForCloudflare(page);
-        await delay(1500);  // Reduced from 3000ms
+        await delay(2000);  // Reduced from 3000ms
         
         const html = await page.content();
         
@@ -282,7 +289,7 @@ async function getCategories(browser) {
         
         await page.goto('https://shop.aversi.ge/ka/', { waitUntil: 'networkidle2', timeout: 60000 });
         await waitForCloudflare(page);
-        await delay(2000);  // Reduced from 3000ms
+        await delay(5000);  // Reduced from 3000ms
         
         const html = await page.content();
         
@@ -470,7 +477,7 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                 await delay(3000);
             }
             
-            await delay(1500);  // Reduced from 2000ms
+            await delay(2000);  // Reduced from 2000ms
             
             totalPages = await page.evaluate(() => {
                 const pageLinks = document.querySelectorAll(".pagination li a");
@@ -530,7 +537,7 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                         await delay(3000);
                     }
                     
-                    await delay(1500);  // Reduced from 2000ms
+                    await delay(2000);  // Reduced from 2000ms
                     
                     const html = await pageHandle.content();
                     
@@ -569,7 +576,7 @@ async function scrapeCategoriesByFarmID(browser, categories) {
                 }
                 
                 if (currentPage < totalPages) {
-                    await delay(1500);  // Reduced from 3000ms
+                    await delay(3000);  // Reduced from 3000ms
                 }
             }
             
@@ -649,7 +656,7 @@ async function scrapeShopAversi(browser, categories) {
             }
             
             if (page < endPage) {
-                await delay(1500);  // Reduced from 2000ms
+                await delay(2000);  // Reduced from 2000ms
             }
         }
     }
@@ -924,7 +931,14 @@ app.get('/aversi/download/excel', (req, res) => {
         res.status(404).json({ error: 'File not found' });
     }
 });
-
+   app.post('/aversi/restart', (req, res) => {
+       res.json({ success: true, message: 'Server restart initiated via PM2' });
+       setTimeout(() => {
+           exec('pm2 restart all', (error, stdout, stderr) => {
+               // Executes PM2 restart
+           });
+       }, 1000);
+   });
 // Clean temp directory on startup
 const tempDir = path.join(__dirname, 'temp');
 if (fs.existsSync(tempDir)) {
