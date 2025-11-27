@@ -3,6 +3,8 @@ import * as cheerio from 'cheerio';
 import fs from 'fs/promises'; // for reading JSON file
 import { fileURLToPath } from 'url';
 import path from 'path';
+import XLSX from 'xlsx';
+ 
 // Read your JSON and loop through FarmIDs
 (async () => {
     try {
@@ -58,7 +60,7 @@ import path from 'path';
                     allProducts.push(...products);
                     await delay(2000);
                     if(products.length === 0 || products.length < perpage) {
-                       console.log(`Category ${category}, page ${page}: Found ${products.length} products`);
+                       console.log(`Category ${category}: No more products found at page ${page}. Stopping.`);
                         break; 
                     }
                 } catch (err) {
@@ -67,7 +69,14 @@ import path from 'path';
                 }
             }
         }
+        // --- Save JSON ---
+        const dataDir = path.join(__dirname, 'public', 'data');
+        await fs.mkdir(dataDir, { recursive: true });
+        const jsonPath = path.join(dataDir, 'aversi-products.json');
+        await fs.writeFile(jsonPath, JSON.stringify(allProducts, null, 2));
 
+        // --- Save Excel ---
+        saveToExcel(allProducts, dataDir);
         console.log('All products scraped:', allProducts.length);
         // Optionally save to a file
         await fs.writeFile('aversi-products.json', JSON.stringify(allProducts, null, 2));
@@ -181,4 +190,39 @@ function cleanPrice(priceText) {
 
 async function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+// --- Excel saving ---
+function saveToExcel(products, dataDir) {
+
+    
+    
+    // Remove duplicates by productCode
+    const uniqueProductsMap = new Map();
+    products.forEach(p => { if (p.productCode) uniqueProductsMap.set(p.productCode, p); });
+    const uniqueProducts = Array.from(uniqueProductsMap.values());
+
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(uniqueProducts), 'All Products');
+
+    const meds = uniqueProducts.filter(p => p.category?.toLowerCase().includes('medication'));
+    if (meds.length) XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(meds), 'Medications');
+
+    const care = uniqueProducts.filter(p => p.category?.toLowerCase().includes('care'));
+    if (care.length) XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(care), 'Care Products');
+
+    const shop = uniqueProducts.filter(p => p.source === 'shop.aversi.ge');
+    if (shop.length) XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(shop), 'Shop Aversi');
+
+    const old = uniqueProducts.filter(p => p.source === 'aversi.ge');
+    if (old.length) XLSX.utils.book_append_sheet(workbook, XLSX.utils.json_to_sheet(old), 'Old Aversi');
+
+    const wscols = [
+        {wch:20},{wch:60},{wch:12},{wch:12},{wch:50},{wch:10},{wch:15},{wch:25}
+    ];
+    workbook.SheetNames.forEach(name => { workbook.Sheets[name]['!cols'] = wscols; });
+
+    const xlsxPath = path.join(dataDir, 'aversi-products.xlsx');
+    XLSX.writeFile(workbook, xlsxPath);
+
+    console.log(`\n✅ Excel saved: ${xlsxPath}`);
 }
