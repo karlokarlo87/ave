@@ -1,10 +1,10 @@
-import express from 'express';
-import path from 'path';
-import puppeteer from 'puppeteer-extra';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import * as cheerio from 'cheerio';
-import fs from 'fs';
-import XLSX from 'xlsx';
+const express = require('express');
+const path = require('path');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+const cheerio = require('cheerio');
+const fs = require('fs');
+const XLSX = require('xlsx');
 
 puppeteer.use(StealthPlugin());
 

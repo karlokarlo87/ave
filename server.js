@@ -57,7 +57,7 @@ import path from 'path';
                     console.log(`Category ${category}, page ${page}: Found ${products.length} products`);
                     allProducts.push(...products);
                     await delay(2000);
-                    if(products.length === 0) {
+                    if(products.length === 0 || products.length < 192) {
                        console.log(`Category ${category}, page ${page}: Found ${products.length} products`);
                         break; 
                     }
