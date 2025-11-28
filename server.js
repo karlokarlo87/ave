@@ -43,6 +43,7 @@ import XLSX from 'xlsx';
                 } catch (err) {
                     console.log(`Error fetching FarmID ${farmID}:`, err.message);
                     delay(3000);
+                    break;
                 }
             }
         }
@@ -66,6 +67,7 @@ import XLSX from 'xlsx';
                 } catch (err) {
                     console.log(`Error fetching category ${category}, page ${page}:`, err.message);
                     await delay(2000);
+                     break; 
                 }
             }
         }
