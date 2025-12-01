@@ -12,7 +12,12 @@
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-anonymize-ua": "^2.4.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "socket.io": "^4.8.1",
     "xlsx": "^0.18.5"
   },
-  "type": "module"
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.10.1"
+  },
+  "scripts": {}
 }
