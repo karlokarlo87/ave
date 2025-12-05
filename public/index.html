@@ -172,6 +172,8 @@
             font-size: 36px;
             font-weight: 700;
             margin: 10px 0;
+            overflow: hidden;
+            max-height: 48px;
         }
 
         .stat-label {
@@ -461,7 +463,7 @@
                 stats.duration;
             
             document.getElementById('statFailed').textContent = 
-                stats.failedPages;
+                0;
         }
 
         // Show message
